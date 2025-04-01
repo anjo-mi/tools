@@ -9,7 +9,7 @@ class Node{
 class BST{
     constructor(value){
         this.root = new Node(value)
-        this.count = 0
+        this.count = 1
     }
 
     size(){
@@ -19,7 +19,7 @@ class BST{
     insert(value){
         this.count++;
 
-        let newNode = newNode(value);
+        let newNode = new Node(value);
 
         const searchTree = node => {
             if (value < node.value){
@@ -118,3 +118,19 @@ class BST{
         return result;
     }
 }
+
+const bst = new BST(15);
+
+bst.insert(3);
+bst.insert(36);
+bst.insert(2);
+bst.insert(12);
+bst.insert(28);
+bst.insert(39);
+console.log(bst)
+
+console.log(bst.size())
+console.log(bst.min())
+console.log(bst.max())
+console.log(bst.contains(2))
+console.log(bst.contains(9))
