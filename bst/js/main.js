@@ -71,6 +71,7 @@ class BST{
 
             if (node.right) traverse(node.right);
         };
+        traverse(this.root);
         return result;
     }
     
@@ -78,25 +79,27 @@ class BST{
     // search root, left, right
     dfsPreOrder(){
         const result = [];
-
+        
         const traverse = node => {
             result.push(node.value);
             if (node.left) traverse(node.left);
             if (node.right) traverse(node.right);
         };
+        traverse(this.root);
         return result;
     };
-     
+    
     // post order
     // search left, right, root
     dfsPostOrder(){
         const result = [];
-
+        
         const traverse = node => {
             if (node.left) traverse(node.left);
             if (node.right) traverse(node.right);
             result.push(node.value);
         };
+        traverse(this.root);
         return result;
     }
 
@@ -111,7 +114,7 @@ class BST{
 
         while (queue.length){
             let current = queue.shift();
-            result.push(current);
+            result.push(current.value);
             if (current.left) queue.push(current.left)
             if (current.right) queue.push(current.right)
         }
@@ -134,3 +137,8 @@ console.log(bst.min())
 console.log(bst.max())
 console.log(bst.contains(2))
 console.log(bst.contains(9))
+
+console.log(bst.dfsInOrder())
+console.log(bst.dfsPreOrder())
+console.log(bst.dfsPostOrder())
+console.log(bst.bfs())
