@@ -56,23 +56,53 @@ class BST{
         return false;
     }
 
-    // depth first search
+    // depth first search - 3 types below
+    // depth first searches branch by branch, jumps levels
+
     // in order
+    // search left, root, right
     dfsInOrder(){
-        
+        const result = [];
+
+        const traverse = node => {
+            if (node.left) traverse(node.left)
+            
+            result.push(node.value)
+
+            if (node.right) traverse(node.right)
+        }
+        return result;
     }
     
     // pre order
+    // search root, left, right
     dfsPreOrder(){
-        
+        const result = [];
+
+        const traverse = node => {
+            result.push(node.value)
+            if (node.left) traverse(node.left)
+            if (node.right) traverse(node.right)
+        }
+        return result;
     }
      
     // post order
+    // search left, right, root
     dfsPostOrder(){
-        
+        const result = [];
+
+        const traverse = node => {
+            if (node.left) traverse(node.left)
+            if (node.right) traverse(node.right)
+            result.push(node.value)
+        }
+        return result;
     }
 
     // breadth first search
+    // breadth first seaches level by level, jumps across branches
+    // uses a queue
     bfs(){
 
     }
